@@ -2,8 +2,9 @@ Create fully customizable square or rectangle progress indicators like native fl
 
 ## Features
 
-![Full example of SquareProgressIndicator](https://raw.githubusercontent.com/amir14a/square_progress_indicator/main/screenshots/screenshot1.gif "Full example of SquareProgressIndicator")
-
+<p align="center">
+  <img src="https://raw.githubusercontent.com/amir14a/square_progress_indicator/main/screenshots/screenshot1.gif" width="350" title="Full example of SquareProgressIndicator">
+</p>
 ## Usage
 
 Simple usage:
@@ -48,8 +49,3 @@ SquareProgressIndicator(
 |       `child`      |      Widget?      |                    `null`                   | The child widget, it can be a text or everything you need.                                                                                                                      |
 
 Feel free to create issue or pull requests in [github repository](https://github.com/amir14a/square_progress_indicator)!
-<style type="text/css">
-    img {
-        width: 350px;
-    }
-</style>

@@ -78,6 +78,7 @@ class SquareProgressIndicator extends StatelessWidget {
         height: height,
         strokeAlign: strokeAlign,
         strokeCap: strokeCap,
+        child: child,
       );
     }
     return SizedBox(
