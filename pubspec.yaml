@@ -25,3 +25,7 @@ platforms:
   macos:
   web:
   windows:
+
+screenshots:
+  - description: 'Full example of SquareProgressIndicator'
+    path: screenshots/screenshot1.gif
