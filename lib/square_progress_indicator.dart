@@ -51,9 +51,9 @@ class SquareProgressIndicator extends StatelessWidget {
     this.clockwise = true,
     this.borderRadius = 8,
     this.color,
-    this.emptyStrokeColor = Colors.grey,
+    this.emptyStrokeColor,
     this.strokeWidth = 4,
-    this.emptyStrokeWidth = 0,
+    this.emptyStrokeWidth = 4,
     this.child,
     this.startPosition = 0,
     this.width = 38,
@@ -80,22 +80,26 @@ class SquareProgressIndicator extends StatelessWidget {
         strokeCap: strokeCap,
       );
     }
-    return CustomPaint(
-      size: Size(width, height),
-      painter: _SquareProgressIndicatorStrokePainter(
-        startPosition: startPosition,
-        value: value!,
-        color: color ?? Theme.of(context).progressIndicatorTheme.color ?? Colors.blue,
-        emptyStrokeColor:
-            emptyStrokeColor ?? Theme.of(context).progressIndicatorTheme.circularTrackColor ?? Colors.transparent,
-        clockwise: clockwise,
-        strokeWidth: strokeWidth,
-        emptyStrokeWidth: emptyStrokeWidth,
-        borderRadius: borderRadius,
-        strokeAlign: strokeAlign,
-        strokeCap: strokeCap,
+    return SizedBox(
+      width: width,
+      height: height,
+      child: CustomPaint(
+        painter: _SquareProgressIndicatorStrokePainter(
+          startPosition: startPosition,
+          value: value!,
+          color: color ?? Theme.of(context).progressIndicatorTheme.color ?? Colors.blue,
+          emptyStrokeColor: emptyStrokeColor ??
+              Theme.of(context).progressIndicatorTheme.circularTrackColor ??
+              Colors.transparent,
+          clockwise: clockwise,
+          strokeWidth: strokeWidth,
+          emptyStrokeWidth: emptyStrokeWidth,
+          borderRadius: borderRadius,
+          strokeAlign: strokeAlign,
+          strokeCap: strokeCap,
+        ),
+        child: Center(child: child),
       ),
-      child: child,
     );
   }
 }
