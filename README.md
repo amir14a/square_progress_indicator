@@ -2,7 +2,7 @@ Create fully customizable square or rectangle progress indicators like native fl
 
 ## Features
 
-![Full example of SquareProgressIndicator](https://raw.githubusercontent.com/amir14a/square_progress_indicator/main/screenshots/screenshot1.gif)
+![Full example of SquareProgressIndicator](https://raw.githubusercontent.com/amir14a/square_progress_indicator/main/screenshots/screenshot1.gif#400x845 "Full example of SquareProgressIndicator")
 
 ## Usage
 
