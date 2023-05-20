@@ -7,3 +7,9 @@
 ## 0.0.3
 
 * fix readme problems.
+## 0.0.4
+
+* fix readme problems.
+## 0.0.5
+* fix child for infinity mode.
+
