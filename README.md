@@ -1,5 +1,4 @@
-Create fully customizable square or rectangle progress indicators like native flutter
-CircularProgressIndicator widget!
+Create fully customizable square or rectangle progress indicators like native flutter CircularProgressIndicator widget!
 
 ## Features
 
@@ -8,51 +7,30 @@ CircularProgressIndicator widget!
 ## Usage
 
 Simple usage:
-
 ```dart
-const SquareProgressIndicator()
-,
+const SquareProgressIndicator(),
 ```
 
 Customize usage:
-
 ```dart
-SquareProgressIndicator
-(
-value: _value,width: 100
-,
-height: 100
-,
-borderRadius: 0
-,
-startPosition: StartPosition.leftCenter,strokeCap: StrokeCap.square,clockwise: true
-,
-color: Colors.purple,emptyStrokeColor: Colors.purple.withOpacity(.5
-)
-,
-strokeWidth: 16
-,
-emptyStrokeWidth: 16
-,
-strokeAlign: SquareStrokeAlign.center,child: Text
-("${
-(
-_value * 100
-)
-.
-toStringAsFixed
-(0)
-}
-%
-"
-)
-,
-)
-,
+SquareProgressIndicator(
+    value: _value,
+    width: 100,
+    height: 100,
+    borderRadius: 0,
+    startPosition: StartPosition.leftCenter,
+    strokeCap: StrokeCap.square,
+    clockwise: true,
+    color: Colors.purple,
+    emptyStrokeColor: Colors.purple.withOpacity(.5),
+    strokeWidth: 16,
+    emptyStrokeWidth: 16,
+    strokeAlign: SquareStrokeAlign.center,
+    child: Text("${(_value * 100).toStringAsFixed(0)}%"),
+),
 ```
 
 ## Additional information
-
 | **Parameter** | **Type** | **Default** | **Info** |
 |:---:|:---:|:---:|---|
 | `value` | double? | `null` | The value of the progress, it should be between 0 and 1. don't pass it to use Indeterminate mode |
@@ -69,5 +47,4 @@ toStringAsFixed
 | `strokeCap` | StrokeCap? | `StrokeCap.round` | The stroke cap of the progress line and empty line, see: https://api.flutter.dev/flutter/dart-ui/StrokeCap.html |
 | `child` | Widget? | `null` | The child widget, it can be a text or everything you need. |
 
-Feel free to create issue or pull requests
-in [github repository](https://github.com/amir14a/square_progress_indicator)!
+Feel free to create issue or pull requests in [github repository](https://github.com/amir14a/square_progress_indicator)!
