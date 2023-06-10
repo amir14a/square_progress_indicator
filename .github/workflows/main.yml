@@ -16,4 +16,4 @@ jobs:
           workingDir: example
           webRenderer: canvaskit
           targetBranch: with-example-web-export
-          baseHref: /square-progress-indicator/
+          baseHref: /square_progress_indicator/
