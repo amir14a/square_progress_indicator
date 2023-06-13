@@ -6,6 +6,12 @@ Create fully customizable square or rectangle progress indicators like native fl
   <img src="https://raw.githubusercontent.com/amir14a/square_progress_indicator/main/example/screenshots/screenshot1.gif" width="350" title="Full example of SquareProgressIndicator">
 </p>
 
+## Live demo
+
+You can check the example project web export on this link:
+[https://amir14a.github.io/square_progress_indicator/](https://amir14a.github.io/square_progress_indicator/)
+Thanks to Github!❤️
+
 ## Usage
 
 Simple usage:
