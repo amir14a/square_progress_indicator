@@ -10,4 +10,6 @@
 * fix child for infinity mode.
 ## 0.0.6
 * fix for pub.dev scores
+## 0.0.7
+* fix screenshot for pub.dev
 
