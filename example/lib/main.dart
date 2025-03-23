@@ -150,7 +150,7 @@ class _MainAppState extends State<MainApp> {
                       strokeCap: StrokeCap.square,
                       clockwise: true,
                       color: Colors.purple,
-                      emptyStrokeColor: Colors.purple.withOpacity(.5),
+                      emptyStrokeColor: Colors.purple.withAlpha(120),
                       strokeWidth: 16,
                       emptyStrokeWidth: 16,
                       strokeAlign: SquareStrokeAlign.center,

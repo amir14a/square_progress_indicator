@@ -1,4 +1,4 @@
-library square_percent_indicater;
+library;
 
 import 'dart:math';
 import 'dart:ui';
@@ -305,7 +305,6 @@ class _IndeterminateSquareProgressIndicator extends StatefulWidget {
   final StrokeCap? strokeCap;
 
   const _IndeterminateSquareProgressIndicator({
-    Key? key,
     required this.clockwise,
     required this.borderRadius,
     required this.color,
@@ -318,7 +317,7 @@ class _IndeterminateSquareProgressIndicator extends StatefulWidget {
     required this.strokeAlign,
     this.strokeCap,
     this.child,
-  }) : super(key: key);
+  });
 
   @override
   State<_IndeterminateSquareProgressIndicator> createState() =>
