@@ -1,6 +1,6 @@
 name: square_progress_indicator
 description: You can create customizable square progress indicators like native flutter CircularProgressIndicator widget.
-version: 0.0.7
+version: 0.0.8
 homepage: https://github.com/amir14a/square_progress_indicator
 repository: https://github.com/amir14a/square_progress_indicator
 issue_tracker: https://github.com/amir14a/square_progress_indicator/issues
@@ -16,7 +16,7 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
 

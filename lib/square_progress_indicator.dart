@@ -60,7 +60,8 @@ class SquareProgressIndicator extends StatelessWidget {
     this.height = 38,
     this.strokeAlign = SquareStrokeAlign.inside,
     this.strokeCap,
-  }) : assert(startPosition >= 0 && startPosition <= 1, "'startFrom' must be between 0 and 1");
+  }) : assert(startPosition >= 0 && startPosition <= 1,
+            "'startFrom' must be between 0 and 1");
 
   @override
   Widget build(BuildContext context) {
@@ -68,9 +69,12 @@ class SquareProgressIndicator extends StatelessWidget {
       return _IndeterminateSquareProgressIndicator(
         clockwise: clockwise,
         borderRadius: borderRadius,
-        color: color ?? Theme.of(context).progressIndicatorTheme.color ?? Colors.blue,
-        emptyStrokeColor:
-            emptyStrokeColor ?? Theme.of(context).progressIndicatorTheme.circularTrackColor ?? Colors.transparent,
+        color: color ??
+            Theme.of(context).progressIndicatorTheme.color ??
+            Colors.blue,
+        emptyStrokeColor: emptyStrokeColor ??
+            Theme.of(context).progressIndicatorTheme.circularTrackColor ??
+            Colors.transparent,
         strokeWidth: strokeWidth,
         emptyStrokeWidth: emptyStrokeWidth,
         startPosition: startPosition,
@@ -88,7 +92,9 @@ class SquareProgressIndicator extends StatelessWidget {
         painter: _SquareProgressIndicatorStrokePainter(
           startPosition: startPosition,
           value: value!,
-          color: color ?? Theme.of(context).progressIndicatorTheme.color ?? Colors.blue,
+          color: color ??
+              Theme.of(context).progressIndicatorTheme.color ??
+              Colors.blue,
           emptyStrokeColor: emptyStrokeColor ??
               Theme.of(context).progressIndicatorTheme.circularTrackColor ??
               Colors.transparent,
@@ -136,14 +142,16 @@ class _SquareProgressIndicatorStrokePainter extends CustomPainter {
       ..color = color
       ..strokeWidth = strokeWidth
       ..style = PaintingStyle.stroke
-      ..strokeCap = strokeCap ?? (borderRadius > 0 ? StrokeCap.round : StrokeCap.square)
+      ..strokeCap =
+          strokeCap ?? (borderRadius > 0 ? StrokeCap.round : StrokeCap.square)
       ..strokeJoin = StrokeJoin.miter;
 
     Paint emptyStrokePaint = Paint()
-      ..color = emptyStrokeWidth <= 0 ? Colors.white.withOpacity(0) : emptyStrokeColor
+      ..color = emptyStrokeWidth <= 0 ? Colors.transparent : emptyStrokeColor
       ..strokeWidth = emptyStrokeWidth
       ..style = PaintingStyle.stroke
-      ..strokeCap = strokeCap ?? (borderRadius > 0 ? StrokeCap.round : StrokeCap.square)
+      ..strokeCap =
+          strokeCap ?? (borderRadius > 0 ? StrokeCap.round : StrokeCap.square)
       ..strokeJoin = StrokeJoin.miter;
 
     var emptyStrokePath = Path();
@@ -155,32 +163,74 @@ class _SquareProgressIndicatorStrokePainter extends CustomPainter {
             ? -strokeWidth / 2
             : 0.0;
 
-    var topLeft = Offset(borderRadius + strokeOffset, borderRadius + strokeOffset);
-    var topRight = Offset(size.width - borderRadius - strokeOffset, borderRadius + strokeOffset);
-    var bottomRight = Offset(size.width - borderRadius - strokeOffset, size.height - borderRadius - strokeOffset);
-    var bottomLeft = Offset(borderRadius + strokeOffset, size.height - borderRadius - strokeOffset);
+    var topLeft =
+        Offset(borderRadius + strokeOffset, borderRadius + strokeOffset);
+    var topRight = Offset(
+        size.width - borderRadius - strokeOffset, borderRadius + strokeOffset);
+    var bottomRight = Offset(size.width - borderRadius - strokeOffset,
+        size.height - borderRadius - strokeOffset);
+    var bottomLeft = Offset(
+        borderRadius + strokeOffset, size.height - borderRadius - strokeOffset);
 
     if (clockwise) {
       emptyStrokePath.moveTo(size.width / 2 + strokeWidth / 2, strokeOffset);
-      emptyStrokePath.lineTo(size.width - borderRadius - strokeOffset, strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: topRight, radius: borderRadius), -pi / 2, pi / 2, false);
-      emptyStrokePath.lineTo(size.width - strokeOffset, size.height - borderRadius - strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: bottomRight, radius: borderRadius), 0, pi / 2, false);
-      emptyStrokePath.lineTo(0 + borderRadius + strokeOffset, size.height - strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: bottomLeft, radius: borderRadius), pi / 2, pi / 2, false);
+      emptyStrokePath.lineTo(
+          size.width - borderRadius - strokeOffset, strokeOffset);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: topRight, radius: borderRadius),
+          -pi / 2,
+          pi / 2,
+          false);
+      emptyStrokePath.lineTo(
+          size.width - strokeOffset, size.height - borderRadius - strokeOffset);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: bottomRight, radius: borderRadius),
+          0,
+          pi / 2,
+          false);
+      emptyStrokePath.lineTo(
+          0 + borderRadius + strokeOffset, size.height - strokeOffset);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: bottomLeft, radius: borderRadius),
+          pi / 2,
+          pi / 2,
+          false);
       emptyStrokePath.lineTo(0 + strokeOffset, borderRadius + strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: topLeft, radius: borderRadius), pi, pi / 2, false);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: topLeft, radius: borderRadius),
+          pi,
+          pi / 2,
+          false);
       emptyStrokePath.lineTo(size.width / 2 + strokeWidth / 2, strokeOffset);
     } else {
       emptyStrokePath.moveTo(size.width / 2 - strokeWidth / 2, strokeOffset);
       emptyStrokePath.lineTo(0 + strokeOffset + borderRadius, strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: topLeft, radius: borderRadius), -pi / 2, -pi / 2, false);
-      emptyStrokePath.lineTo(0 + strokeOffset, size.height - borderRadius - strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: bottomLeft, radius: borderRadius), -pi, -pi / 2, false);
-      emptyStrokePath.lineTo(size.width - borderRadius - strokeOffset, size.height - strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: bottomRight, radius: borderRadius), pi / 2, -pi / 2, false);
-      emptyStrokePath.lineTo(size.width - strokeOffset, borderRadius + strokeOffset);
-      emptyStrokePath.arcTo(Rect.fromCircle(center: topRight, radius: borderRadius), 0, -pi / 2, false);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: topLeft, radius: borderRadius),
+          -pi / 2,
+          -pi / 2,
+          false);
+      emptyStrokePath.lineTo(
+          0 + strokeOffset, size.height - borderRadius - strokeOffset);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: bottomLeft, radius: borderRadius),
+          -pi,
+          -pi / 2,
+          false);
+      emptyStrokePath.lineTo(
+          size.width - borderRadius - strokeOffset, size.height - strokeOffset);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: bottomRight, radius: borderRadius),
+          pi / 2,
+          -pi / 2,
+          false);
+      emptyStrokePath.lineTo(
+          size.width - strokeOffset, borderRadius + strokeOffset);
+      emptyStrokePath.arcTo(
+          Rect.fromCircle(center: topRight, radius: borderRadius),
+          0,
+          -pi / 2,
+          false);
       emptyStrokePath.lineTo(size.width / 2 - strokeWidth / 2, strokeOffset);
     }
 
@@ -271,10 +321,12 @@ class _IndeterminateSquareProgressIndicator extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<_IndeterminateSquareProgressIndicator> createState() => _IndeterminateSquareProgressIndicatorState();
+  State<_IndeterminateSquareProgressIndicator> createState() =>
+      _IndeterminateSquareProgressIndicatorState();
 }
 
-class _IndeterminateSquareProgressIndicatorState extends State<_IndeterminateSquareProgressIndicator>
+class _IndeterminateSquareProgressIndicatorState
+    extends State<_IndeterminateSquareProgressIndicator>
     with TickerProviderStateMixin {
   late AnimationController _controller;
   late AnimationController _controller2;
@@ -282,8 +334,10 @@ class _IndeterminateSquareProgressIndicatorState extends State<_IndeterminateSqu
   @override
   void initState() {
     super.initState();
-    _controller = AnimationController(vsync: this, duration: const Duration(milliseconds: 350 * 8));
-    _controller2 = AnimationController(vsync: this, duration: const Duration(milliseconds: 300 * 2));
+    _controller = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 350 * 8));
+    _controller2 = AnimationController(
+        vsync: this, duration: const Duration(milliseconds: 300 * 3));
     _controller.repeat();
     _controller2.repeat(reverse: true);
   }
@@ -302,17 +356,27 @@ class _IndeterminateSquareProgressIndicatorState extends State<_IndeterminateSqu
         return AnimatedBuilder(
             animation: _controller2,
             builder: (context, w) {
-              var anim2val = _controller2.drive(CurveTween(curve: Curves.easeInOutQuart)).value * .7;
+              var anim2var = _controller2
+                      .drive(CurveTween(curve: Curves.easeInOutQuart))
+                      .value *
+                  1;
               return SquareProgressIndicator(
-                value: anim2val,
+                value: anim2var * .7,
                 clockwise: widget.clockwise,
                 borderRadius: widget.borderRadius,
                 color: widget.color,
                 emptyStrokeColor: widget.emptyStrokeColor,
                 strokeWidth: widget.strokeWidth,
                 emptyStrokeWidth: widget.emptyStrokeWidth,
-                startPosition:
-                    (widget.startPosition + (widget.clockwise ? _controller.value : (1 - _controller.value))) % 1,
+                startPosition: (widget.startPosition +
+                        (widget.clockwise
+                            ? ((_controller2.status == AnimationStatus.reverse
+                                ? (_controller.value + 1 - (anim2var))
+                                : _controller.value))
+                            : ((_controller2.status == AnimationStatus.reverse
+                                ? ((1 - _controller.value) - 1 + (anim2var))
+                                : (1 - _controller.value))))) %
+                    1,
                 width: widget.width,
                 height: widget.height,
                 strokeAlign: widget.strokeAlign,

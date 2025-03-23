@@ -40,7 +40,13 @@ class _MainAppState extends State<MainApp> {
                     label: _value.toStringAsFixed(2),
                   ),
                 ),
-                Text("${(_value * 100).toStringAsFixed(0)}%"),
+                SizedBox(
+                  width: 32,
+                  child: FittedBox(
+                    fit: BoxFit.scaleDown,
+                    child: Text("${(_value * 100).toStringAsFixed(0)}%"),
+                  ),
+                ),
                 const SizedBox(width: 16),
               ],
             ),
@@ -83,7 +89,8 @@ class _MainAppState extends State<MainApp> {
                       emptyStrokeColor: Colors.grey,
                     ),
                     const Divider(),
-                    _infoLeftText("Customize start position and turning direction:"),
+                    _infoLeftText(
+                        "Customize start position and turning direction:"),
                     SquareProgressIndicator(
                       value: _value,
                       clockwise: false,
@@ -101,7 +108,8 @@ class _MainAppState extends State<MainApp> {
                             strokeAlign: SquareStrokeAlign.inside,
                             child: Text(
                               'inside',
-                              style: TextStyle(fontSize: 10, color: Colors.blue),
+                              style:
+                                  TextStyle(fontSize: 10, color: Colors.blue),
                             ),
                           ),
                         ),
@@ -112,7 +120,8 @@ class _MainAppState extends State<MainApp> {
                             strokeAlign: SquareStrokeAlign.center,
                             child: Text(
                               'center',
-                              style: TextStyle(fontSize: 10, color: Colors.blue),
+                              style:
+                                  TextStyle(fontSize: 10, color: Colors.blue),
                             ),
                           ),
                         ),
@@ -123,7 +132,8 @@ class _MainAppState extends State<MainApp> {
                             strokeAlign: SquareStrokeAlign.outside,
                             child: Text(
                               'outside',
-                              style: TextStyle(fontSize: 10, color: Colors.blue),
+                              style:
+                                  TextStyle(fontSize: 10, color: Colors.blue),
                             ),
                           ),
                         ),
@@ -146,7 +156,6 @@ class _MainAppState extends State<MainApp> {
                       strokeAlign: SquareStrokeAlign.center,
                       child: Text("${(_value * 100).toStringAsFixed(0)}%"),
                     ),
-                    const Divider(),
                   ],
                 ),
               ),

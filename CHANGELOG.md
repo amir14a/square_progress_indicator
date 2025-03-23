@@ -12,4 +12,5 @@
 * fix for pub.dev scores
 ## 0.0.7
 * fix screenshot for pub.dev
-
+## 0.0.8
+* fix withOpacity, dart format and infinity loading animation
