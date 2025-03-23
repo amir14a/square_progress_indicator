@@ -3,7 +3,7 @@ Create fully customizable square or rectangle progress indicators like native fl
 ## Features
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/amir14a/square_progress_indicator/main/example/screenshots/screenshot1-new.gif" width="350" title="Full example of SquareProgressIndicator">
+  <img src="https://github.com/amir14a/square_progress_indicator/blob/main/example/screenshots/screenshot-new.gif?raw=true" width="350" title="Full example of SquareProgressIndicator">
 </p>
 
 ## Live demo
